@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital Clock and Exam Timer</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: lightblue;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .container {
+            width: 400px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        #clock, #timer {
+            font-size: 35px;
+            font-weight: bold;
+            margin: 20px;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Digital Clock</h2>
+
+    <div id="clock">00:00:00</div>
+
+    <hr>
+
+    <h2>Exam Timer</h2>
+
+    <div id="timer">01:00</div>
+
+    <button onclick="startTimer()">Start</button>
+    <button onclick="stopTimer()">Stop</button>
+    <button onclick="resetTimer()">Reset</button>
+
+</div>
+
+<script>
+
+function showClock() {
+    let now = new Date();
+
+    let h = String(now.getHours()).padStart(2, "0");
+    let m = String(now.getMinutes()).padStart(2, "0");
+    let s = String(now.getSeconds()).padStart(2, "0");
+
+    document.getElementById("clock").innerHTML =
+        h + ":" + m + ":" + s;
+}
+
+setInterval(showClock, 1000);
+showClock();
+
+
+let time = 60;
+let timer;
+
+function startTimer() {
+
+    if (timer) return;
+
+    timer = setInterval(function() {
+
+        let minutes = Math.floor(time / 60);
+        let seconds = time % 60;
+
+        document.getElementById("timer").innerHTML =
+            String(minutes).padStart(2, "0") + ":" +
+            String(seconds).padStart(2, "0");
+
+        if (time === 0) {
+            clearInterval(timer);
+            timer = null;
+            alert("Time is over!");
+        }
+
+        time--;
+
+    }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timer);
+    timer = null;
+}
+
+function resetTimer() {
+    clearInterval(timer);
+    timer = null;
+
+    time = 60;
+
+    document.getElementById("timer").innerHTML = "01:00";
+}
+
+</script>
+
+</body>
+</html>

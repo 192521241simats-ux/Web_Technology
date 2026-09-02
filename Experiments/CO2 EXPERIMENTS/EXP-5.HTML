@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Saveetha College</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: darkblue;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        nav {
+            background-color: #222;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 25px;
+        }
+
+        nav a:hover {
+            background-color: darkblue;
+        }
+
+        section {
+            background-color: white;
+            margin: 20px auto;
+            padding: 25px;
+            max-width: 900px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: darkblue;
+        }
+
+        .courses {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .course {
+            background-color: lightblue;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .gallery {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .gallery div {
+            background-color: lightgray;
+            padding: 30px;
+            flex: 1;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: darkblue;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .courses {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>ABC College of Engineering</h1>
+    <p>Knowledge • Innovation • Excellence</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#courses">Courses</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="home">
+    <h2>Welcome to ABC College</h2>
+    <p>
+        Welcome to Saveetha College of Engineering.
+        We provide quality education and encourage students
+        to develop technical and professional skills.
+    </p>
+</section>
+
+<section id="about">
+    <h2>About Us</h2>
+    <p>
+        Saveetha College is committed to providing excellent
+        education, modern facilities and a good learning
+        environment for students.
+    </p>
+</section>
+
+<section id="courses">
+    <h2>Our Courses</h2>
+
+    <div class="courses">
+        <div class="course">
+            <h3>Computer Science</h3>
+            <p>Programming and Software Development</p>
+        </div>
+
+        <div class="course">
+            <h3>Information Technology</h3>
+            <p>Web and Information Technology</p>
+        </div>
+
+        <div class="course">
+            <h3>Electronics</h3>
+            <p>Electronics and Communication</p>
+        </div>
+    </div>
+</section>
+
+<section id="gallery">
+    <h2>Gallery</h2>
+
+    <div class="gallery">
+        <div>College Campus</div>
+        <div>Computer Lab</div>
+        <div>Library</div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+
+    <p><b>Email:</b> saveethacollege@gmail.com</p>
+    <p><b>Phone:</b> 9876543210</p>
+    <p><b>Address:</b> Chennai, Tamil Nadu</p>
+</section>
+
+<footer>
+    <p>© 2026 Saveetha College of Engineering</p>
+</footer>
+
+</body>
+</html>

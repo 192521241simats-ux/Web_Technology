@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Result Analysis</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: lightblue;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            width: 400px;
+            margin: auto;
+            background-color: white;
+            padding: 25px;
+            border: 2px solid darkblue;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: darkblue;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px;
+        }
+
+        button {
+            padding: 10px 25px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Student Result Analysis</h2>
+
+    <input type="number" id="mark1" placeholder="Enter Subject 1 Mark">
+    <input type="number" id="mark2" placeholder="Enter Subject 2 Mark">
+    <input type="number" id="mark3" placeholder="Enter Subject 3 Mark">
+    <input type="number" id="mark4" placeholder="Enter Subject 4 Mark">
+    <input type="number" id="mark5" placeholder="Enter Subject 5 Mark">
+
+    <br>
+
+    <button onclick="calculateResult()">Calculate Result</button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+    function calculateResult() {
+
+        let m1 = Number(document.getElementById("mark1").value);
+        let m2 = Number(document.getElementById("mark2").value);
+        let m3 = Number(document.getElementById("mark3").value);
+        let m4 = Number(document.getElementById("mark4").value);
+        let m5 = Number(document.getElementById("mark5").value);
+
+        if (m1 < 0 || m1 > 100 ||
+            m2 < 0 || m2 > 100 ||
+            m3 < 0 || m3 > 100 ||
+            m4 < 0 || m4 > 100 ||
+            m5 < 0 || m5 > 100) {
+
+            document.getElementById("result").innerHTML =
+                "Please enter marks between 0 and 100.";
+            return;
+        }
+
+        let total = m1 + m2 + m3 + m4 + m5;
+        let average = total / 5;
+        let grade;
+
+        if (average >= 90) {
+            grade = "A+";
+        }
+        else if (average >= 80) {
+            grade = "A";
+        }
+        else if (average >= 70) {
+            grade = "B";
+        }
+        else if (average >= 60) {
+            grade = "C";
+        }
+        else if (average >= 50) {
+            grade = "D";
+        }
+        else {
+            grade = "F";
+        }
+
+        document.getElementById("result").innerHTML =
+            "Total Marks: " + total + "<br>" +
+            "Average: " + average.toFixed(2) + "<br>" +
+            "Grade: " + grade;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Cart</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: lightblue;
+            padding: 30px;
+        }
+
+        .container {
+            width: 600px;
+            margin: auto;
+            background-color: white;
+            padding: 25px;
+            border: 2px solid darkblue;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: darkblue;
+        }
+
+        .product {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            margin: 10px 0;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cart {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #eeeeee;
+        }
+
+        #total {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Online Shopping Cart</h2>
+
+    <div class="product">
+        <span>Laptop - ₹50000</span>
+        <button onclick="addToCart(50000)">Add</button>
+    </div>
+
+    <div class="product">
+        <span>Headphones - ₹2000</span>
+        <button onclick="addToCart(2000)">Add</button>
+    </div>
+
+    <div class="product">
+        <span>Mouse - ₹800</span>
+        <button onclick="addToCart(800)">Add</button>
+    </div>
+
+    <div class="product">
+        <span>Keyboard - ₹1500</span>
+        <button onclick="addToCart(1500)">Add</button>
+    </div>
+
+    <div class="cart">
+
+        <h3>Bill Details</h3>
+
+        <p>Items: <span id="items">0</span></p>
+
+        <p>Subtotal: ₹<span id="subtotal">0</span></p>
+
+        <p>Discount (10%): ₹<span id="discount">0</span></p>
+
+        <p>Tax (5%): ₹<span id="tax">0</span></p>
+
+        <p id="total">Total: ₹0</p>
+
+    </div>
+
+</div>
+
+<script>
+
+let items = 0;
+let subtotal = 0;
+
+function addToCart(price) {
+
+    items++;
+    subtotal = subtotal + price;
+
+    let discount = subtotal * 0.10;
+    let afterDiscount = subtotal - discount;
+
+    let tax = afterDiscount * 0.05;
+
+    let total = afterDiscount + tax;
+
+    document.getElementById("items").innerHTML = items;
+    document.getElementById("subtotal").innerHTML = subtotal.toFixed(2);
+    document.getElementById("discount").innerHTML = discount.toFixed(2);
+    document.getElementById("tax").innerHTML = tax.toFixed(2);
+    document.getElementById("total").innerHTML =
+        "Total: ₹" + total.toFixed(2);
+}
+
+</script>
+
+</body>
+</html>

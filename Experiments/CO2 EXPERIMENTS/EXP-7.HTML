@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Quiz</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: lightblue;
+            padding: 30px;
+        }
+
+        .quiz {
+            width: 600px;
+            margin: auto;
+            background-color: white;
+            padding: 25px;
+            border: 2px solid darkblue;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: darkblue;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f2f2f2;
+            border-radius: 8px;
+        }
+
+        button {
+            display: block;
+            margin: auto;
+            padding: 10px 30px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="quiz">
+
+    <h2>Online Quiz</h2>
+
+    <div class="question">
+        <p><b>1. Which language is used for web page structure?</b></p>
+
+        <input type="radio" name="q1" value="HTML"> HTML<br>
+        <input type="radio" name="q1" value="Python"> Python<br>
+        <input type="radio" name="q1" value="Java"> Java
+    </div>
+
+    <div class="question">
+        <p><b>2. Which language is used for web page styling?</b></p>
+
+        <input type="radio" name="q2" value="CSS"> CSS<br>
+        <input type="radio" name="q2" value="C"> C<br>
+        <input type="radio" name="q2" value="SQL"> SQL
+    </div>
+
+    <div class="question">
+        <p><b>3. Which language is mainly used for web page interactivity?</b></p>
+
+        <input type="radio" name="q3" value="JavaScript"> JavaScript<br>
+        <input type="radio" name="q3" value="HTML"> HTML<br>
+        <input type="radio" name="q3" value="CSS"> CSS
+    </div>
+
+    <div class="question">
+        <p><b>4. Which tag is used to create a hyperlink?</b></p>
+
+        <input type="radio" name="q4" value="a"> &lt;a&gt;<br>
+        <input type="radio" name="q4" value="p"> &lt;p&gt;<br>
+        <input type="radio" name="q4" value="h1"> &lt;h1&gt;
+    </div>
+
+    <div class="question">
+        <p><b>5. Which symbol is used for an ID selector in CSS?</b></p>
+
+        <input type="radio" name="q5" value="#"> #<br>
+        <input type="radio" name="q5" value="."> .<br>
+        <input type="radio" name="q5" value="*"> *
+    </div>
+
+    <button onclick="checkQuiz()">Submit Quiz</button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+
+function checkQuiz() {
+
+    let score = 0;
+
+    let q1 = document.querySelector('input[name="q1"]:checked');
+    let q2 = document.querySelector('input[name="q2"]:checked');
+    let q3 = document.querySelector('input[name="q3"]:checked');
+    let q4 = document.querySelector('input[name="q4"]:checked');
+    let q5 = document.querySelector('input[name="q5"]:checked');
+
+    if (q1 && q1.value === "HTML") {
+        score++;
+    }
+
+    if (q2 && q2.value === "CSS") {
+        score++;
+    }
+
+    if (q3 && q3.value === "JavaScript") {
+        score++;
+    }
+
+    if (q4 && q4.value === "a") {
+        score++;
+    }
+
+    if (q5 && q5.value === "#") {
+        score++;
+    }
+
+    document.getElementById("result").innerHTML =
+        "Your Score: " + score + " / 5";
+}
+
+</script>
+
+</body>
+</html>

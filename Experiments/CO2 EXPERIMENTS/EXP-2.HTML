@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Registration</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightblue;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .form-box {
+            width: 400px;
+            margin: auto;
+            background-color: white;
+            padding: 25px;
+            border: 2px solid darkblue;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px gray;
+        }
+
+        h2 {
+            text-align: center;
+            color: darkblue;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 9px;
+            margin-top: 5px;
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+
+        .gender {
+            width: auto;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 500px) {
+            .form-box {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-box">
+
+        <h2>Student Registration</h2>
+
+        <form id="registrationForm">
+
+            <label>Name:</label>
+            <input type="text" id="name" placeholder="Enter your name">
+
+            <label>Email:</label>
+            <input type="text" id="email" placeholder="Enter your email">
+
+            <label>Password:</label>
+            <input type="password" id="password" placeholder="Enter password">
+
+            <label>Confirm Password:</label>
+            <input type="password" id="confirmPassword"
+                   placeholder="Confirm password">
+
+            <label>Phone:</label>
+            <input type="text" id="phone" placeholder="Enter phone number">
+
+            <label>Gender:</label>
+            <input class="gender" type="radio" name="gender" value="Male"> Male
+            <input class="gender" type="radio" name="gender" value="Female"> Female
+
+            <button type="submit">Register</button>
+
+        </form>
+
+        <div id="message"></div>
+
+    </div>
+
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
+            let phone = document.getElementById("phone").value.trim();
+            let message = document.getElementById("message");
+
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            let phonePattern = /^[0-9]{10}$/;
+
+            if (name === "" || email === "" || password === "" ||
+                confirmPassword === "" || phone === "") {
+
+                message.innerHTML = "Please fill all the fields.";
+                message.style.color = "red";
+                return;
+            }
+
+            if (!emailPattern.test(email)) {
+                message.innerHTML = "Enter a valid email.";
+                message.style.color = "red";
+                return;
+            }
+
+            if (password.length < 6) {
+                message.innerHTML = "Password must contain at least 6 characters.";
+                message.style.color = "red";
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                message.innerHTML = "Passwords do not match.";
+                message.style.color = "red";
+                return;
+            }
+
+            if (!phonePattern.test(phone)) {
+                message.innerHTML = "Phone number must contain 10 digits.";
+                message.style.color = "red";
+                return;
+            }
+
+            message.innerHTML = "Registration Successful!";
+            message.style.color = "green";
+        });
+    </script>
+
+</body>
+</html>

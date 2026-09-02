@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debugging Experiment</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background-color: lightblue;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        button {
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Debugging Example</h1>
+
+    <p id="message">Click the button</p>
+
+    <button onclick="showMessage()">Click Me</button>
+
+    <script>
+
+        function showMessage() {
+
+            let name = "Student";
+
+            document.getElementById("message").innerHTML =
+                "Hello " + name;
+
+        }
+
+    </script>
+
+</body>
+</html>

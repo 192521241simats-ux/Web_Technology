@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Profile</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightblue;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .profile {
+            max-width: 600px;
+            margin: auto;
+            background-color:White;
+            padding: 25px;
+            border: 2px solid darkblue;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px gray;
+            text-align: center;
+        }
+
+        .profile img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid darkblue;
+        }
+
+        h1 {
+            color: darkblue;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            color: white;
+            background-color: Blue;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        p {
+            font-size: 16px;
+            margin: 10px;
+        }
+
+        .details {
+            text-align: left;
+            padding: 15px;
+            background-color: #f2f2f2;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 600px) {
+            .profile {
+                width: 100%;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="profile">
+
+        <img src="https://via.placeholder.com/120" alt="Student Photo">
+
+        <h1>Nevitha</h1>
+        <p><b>B.Tech Information Technology</b></p>
+
+        <h2>Student Details</h2>
+
+        <div class="details">
+            <p><b>Roll No:</b>101</p>
+            <p><b>Email:</b> nevitha@gmail.com</p>
+            <p><b>Phone:</b> 9876543210</p>
+            <p><b>College:</b> Saveetha College of Engineering</p>
+        </div>
+
+        <h2>About Me</h2>
+
+        <p>
+            I am a Information Technology student interested in
+            programming, web development and learning new technologies.
+        </p>
+
+    </div>
+
+</body>
+</html>
