@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+            padding: 30px;
+        }
+
+        .container {
+            width: 400px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #displayBtn {
+            background: green;
+            color: white;
+        }
+
+        #removeBtn {
+            background: red;
+            color: white;
+        }
+
+        .profile {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f5e9;
+            border-left: 5px solid green;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Student Registration</h2>
+
+    <label>Name</label>
+    <input type="text" id="name" placeholder="Enter Name">
+
+    <label>Register Number</label>
+    <input type="text" id="regno" placeholder="Enter Register Number">
+
+    <label>Department</label>
+    <input type="text" id="department" placeholder="Enter Department">
+
+    <label>Year of Study</label>
+    <select id="year">
+        <option value="">Select Year</option>
+        <option value="1st Year">1st Year</option>
+        <option value="2nd Year">2nd Year</option>
+        <option value="3rd Year">3rd Year</option>
+        <option value="4th Year">4th Year</option>
+    </select>
+
+    <button id="displayBtn">Display Profile</button>
+    <button id="removeBtn">Remove Profile</button>
+
+    <div id="profileArea"></div>
+
+</div>
+
+<script>
+
+document.getElementById("displayBtn").addEventListener("click", function () {
+
+    let name = document.getElementById("name").value;
+    let regno = document.getElementById("regno").value;
+    let department = document.getElementById("department").value;
+    let year = document.getElementById("year").value;
+
+    if (name === "" || regno === "" || department === "" || year === "") {
+        alert("Please fill all the fields.");
+        return;
+    }
+
+    let profile = document.createElement("div");
+
+    profile.classList.add("profile");
+
+    profile.innerHTML =
+        "<h3>Student Profile</h3>" +
+        "<p><b>Name:</b> " + name + "</p>" +
+        "<p><b>Register Number:</b> " + regno + "</p>" +
+        "<p><b>Department:</b> " + department + "</p>" +
+        "<p><b>Year:</b> " + year + "</p>";
+
+    document.getElementById("profileArea").innerHTML = "";
+    document.getElementById("profileArea").appendChild(profile);
+});
+
+document.getElementById("removeBtn").addEventListener("click", function () {
+    document.getElementById("profileArea").innerHTML = "";
+});
+
+</script>
+
+</body>
+</html>
