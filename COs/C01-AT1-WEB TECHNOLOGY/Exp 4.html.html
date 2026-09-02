@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: gray;
+        }
+
+        .form-box {
+            width: 350px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: lightblue;
+            border: 2px solid darkblue;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: darkblue;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #message {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-box">
+
+        <h2>Student Registration</h2>
+
+        <label for="studentName">Student Name</label>
+        <input type="text"
+               id="studentName"
+               placeholder="Enter student name">
+
+        <label for="registerNumber">Register Number</label>
+        <input type="text"
+               id="registerNumber"
+               placeholder="Enter register number">
+
+        <label for="Email">Email</label>
+        <input type="text"
+               id="Email"
+               placeholder="Enter the Email">
+
+        <label for="department">Department</label>
+        <select id="department">
+            <option value="">Select Department</option>
+            <option value="CSE">CSE</option>
+            <option value="AI">Artificial Intelligence</option>
+            <option value="ECE">ECE</option>
+</select>
+
+        <label for="Year">Year</label>
+        <select id="Year">
+           <option value="">Select Year</option>
+           <option>I Year</option>
+           <option>II Year</option>
+           <option>III Year</option>
+           <option>IV Year</option>
+
+</select>
+        <label>Gender</label>
+        <select id="gender">
+           <option value="">Select Gender</option>
+           <option>Male</option>
+           <option>Female</option>
+           <option>Other</option>
+</select>
+        
+        <label>address</label>
+        <input type="text" 
+              id="address"
+              placeholder="Enter address">
+        </select>
+
+        <button onclick="registerStudent()">
+            Register
+        </button>
+
+        <p id="message"></p>
+
+    </div>
+
+    <script>
+        function registerStudent() {
+
+            const name =
+                document.getElementById("studentName").value;
+
+            const registerNumber =
+                document.getElementById("registerNumber").value;
+
+            const Email=
+                document.getElementById("Email").value;
+
+            const department =
+                document.getElementById("department").value;
+
+            const Year=
+                document.getElementById("Year").value;
+
+            const gender=
+                document.getElementById("gender").value;
+
+            const address=
+                document.getElementById("address").value;
+
+            const message =
+                document.getElementById("message");
+
+            if (
+                name === "" ||
+                registerNumber === "" ||
+                Email=== ""||
+                department === ""||
+                Year=== ""||
+                gender=== ""||
+                address=== ""
+            ) {
+                message.textContent =
+                    "Please fill in all the fields.";
+
+                message.style.color = "red";
+            } else {
+                message.textContent =
+                    "Student registered successfully.";
+
+                message.style.color = "Green";
+            }
+        }
+    </script>
+
+</body>
+</html>

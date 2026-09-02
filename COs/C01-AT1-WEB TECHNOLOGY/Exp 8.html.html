@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Page</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#4facfe,#00f2fe);
+}
+
+header{
+    background:Red;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 3px 10px rgba(0,0,0,0.2);
+}
+
+header h1{
+    color:#0066cc;
+}
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:30px auto;
+}
+
+.card{
+    background:Gray;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+.card img{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+}
+
+.content{
+    padding:25px;
+    text-align:center;
+}
+
+.content h2{
+    color:#333;
+}
+
+.content p{
+    color:#666;
+    margin:15px 0;
+    line-height:1.6;
+}
+
+.button{
+    display:inline-block;
+    padding:12px 25px;
+    background:#007BFF;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    font-size:18px;
+    transition:0.3s;
+}
+
+.button:hover{
+    background:#0056b3;
+}
+
+iframe{
+    width:100%;
+    height:450px;
+    border:none;
+    border-radius:12px;
+    margin-top:25px;
+}
+
+footer{
+    text-align:center;
+    padding:15px;
+    color:Black;
+    font-size:18px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Welcome to My Web Page</h1>
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200"
+alt="Beautiful Nature" width="100%" height="350">
+
+<div class="content">
+
+<h2>Explore the Beauty of Nature</h2>
+
+<p>
+This webpage demonstrates the use of HTML Image, Hyperlink, Width, Height,
+Alt Text and Iframe with a modern responsive design.
+</p>
+
+<a href="https://www.wikipedia.org"
+target="_blank"
+class="button">
+Visit Wikipedia
+</a>
+
+<iframe
+src="https://www.wikipedia.org"
+title="Wikipedia">
+</iframe>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 Modern Web Design | HTML & CSS Demo
+</footer>
+
+</body>
+</html>
