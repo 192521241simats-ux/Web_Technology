@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 1. Title of the page -->
+    <title>S. Ezhilarasi | Student Profile</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        :root {
+            --bg-page: #0b0f19;
+            --bg-card: #131a26;
+            --border: #222f43;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-cyan: #06b6d4;
+            --accent-teal: #14b8a6;
+            --accent-purple: #a855f7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 4rem 2rem;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 3rem;
+        }
+
+        /* 10. Proper Indentation & Layout Structure */
+        .sidebar {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem 1.75rem;
+            height: fit-content;
+            position: sticky;
+            top: 2rem;
+            text-align: center;
+        }
+
+        .profile-frame {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            padding: 6px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+        }
+
+        .profile-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            background-color: #1e293b;
+            display: block;
+        }
+
+        .sidebar h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.5px;
+        }
+
+        .department-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-box {
+            text-align: left;
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-item {
+            margin-bottom: 1.25rem;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .value {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .value a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .value a:hover {
+            color: var(--accent-purple);
+        }
+
+        /* Main Dashboard Sections */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.3px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .card-title span {
+            color: var(--accent-cyan);
+            font-size: 0.9rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .intro-p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Native List Architectures */
+        .styled-ul, .styled-ol {
+            padding-left: 1.25rem;
+            color: var(--text-secondary);
+        }
+
+        .styled-ul li, .styled-ol li {
+            margin-bottom: 0.75rem;
+            padding-left: 0.25rem;
+        }
+
+        .styled-ul li::marker {
+            color: var(--accent-cyan);
+        }
+
+        .styled-ol li::marker {
+            color: var(--accent-purple);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+        }
+
+        /* Tech Skill Badges */
+        .skills-shelf {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-node {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            background-color: #1e293b;
+            color: var(--text-primary);
+            padding: 0.35rem 0.85rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        /* 6. Academic Table Styling */
+        .table-container {
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.85rem;
+        }
+
+        th {
+            background-color: #1e293b;
+            padding: 0.85rem 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--border);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            color: var(--text-primary);
+            background-color: #1a2333;
+        }
+
+        .mark-grade {
+            font-weight: 600;
+            color: var(--accent-cyan);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .mark-status {
+            background-color: rgba(20, 184, 166, 0.1);
+            color: var(--accent-teal);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .sidebar {
+                position: relative;
+                top: 0;
+                width: 100%;
+            }
+            body {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- Left Sidebar Area -->
+    <div class="sidebar">
+        <!-- 7. One image -->
+        <div class="profile-frame">
+            <img src="ezhil_pic.jpeg" alt="S. Ezhilarasi">
+        </div>
+        
+        <!-- 2. Student name as main heading -->
+        <h1>S. Ezhilarasi</h1>
+        <p class="department-tag">B.Tech Information Technology</p>
+        
+        <!-- 9. Contact details grouped cleanly inside side profile grid -->
+        <div class="contact-box">
+            <div class="contact-item">
+                <span class="label">Institution</span>
+                <span class="value">SIMATS Engineering</span>
+            </div>
+            <div class="contact-item">
+                <span class="label">Academic Year</span>
+                <span class="value">Second Year</span>
+            </div>
+            <!-- 8. One hyperlink to college website -->
+            <div class="contact-item">
+                <span class="label">University Portal</span>
+                <span class="value"><a href="https://arms.sse.saveetha.com" target="_blank">arms.sse.saveetha.com ↗</a></span>
+            </div>
+            <div class="contact-item">
+                <span class="label">Academic Email</span>
+                <span class="value"><a href="mailto:192521187.simats@saveetha.com">192521187.simats@saveetha.com</a></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        
+        <!-- 3. Short self-introduction paragraph -->
+        <div class="card">
+            <h2 class="card-title"><span>01 //</span> Overview</h2>
+            <p class="intro-p">
+                I am a dedicated undergraduate engineering student deeply passionate about writing efficient source code, constructing custom web systems, and exploring intricate optimization routines as an engineering debugging enthusiast. Leveraging programmatic expertise across Python systems and MySQL transactional databases, I focus on transforming abstract project definitions into robust engineering applications.
+            </p>
+            <div class="skills-shelf">
+                <div class="skill-node">python_expert</div>
+                <div class="skill-node">mysql_database_expert</div>
+                <div class="skill-node">web_architecture</div>
+                <div class="skill-node">system_debugging</div>
+                <div class="skill-node">ethical_hacking_enthusiast</div>
+            </div>
+        </div>
+
+        <!-- 4. Hobbies using unordered list -->
+        <div class="card">
+            <h2 class="card-title"><span>02 //</span> Personal Hobbies</h2>
+            <ul class="styled-ul">
+                <li>Competing in rapid-prototyping Hackathons.</li>
+                <li>Architecting and building scalable technical mini projects.</li>
+                <li>Unwinding and playing with my pet.</li>
+            </ul>
+        </div>
+
+        <!-- 5. Academic goals using ordered list -->
+        <div class="card">
+            <h2 class="card-title"><span>03 //</span> Core Academic Goals</h2>
+            <ol class="styled-ol">
+                <li>Engineer and deploy core system workflows for the Digital Twin based Intercampus Navigation System and the Chat Application lifecycle models.</li>
+                <li>Obtain advanced validations through structured NPTEL industrial certifications in IoT architectures, Ethical Hacking routines, and Deep Learning modules.</li>
+                <li>Maintain a distinguished academic transcript across all secondary and advanced core computational frameworks.</li>
+            </ol>
+        </div>
+
+        <!-- 6. Subject marks using table -->
+        <div class="card">
+            <h2 class="card-title"><span>04 //</span> Academic Ledger</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Course Module Name</th>
+                            <th>Grade</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Engineering Mathematics - I</td><td class="mark-grade">A</td><td><span class="mark-status">PASS</span></td></tr>
+                        <tr><td>Operating Systems</td><td class="mark-grade">A</td><td><span class="mark-status">PASS</span></td></tr>
+                        <tr><td>Database Management Systems</td><td class="mark-grade">A</td><td><span class="mark-status">PASS</span></td></tr>
+                        <tr><td>Principles of Digital System Design</td><td class="mark-grade">A</td><td><span class="mark-status">PASS</span></td></tr>
+                        <tr><td>C Programming</td><td class="mark-grade">A</td><td><span class="mark-status">PASS</span></td></tr>
+                        <tr><td>Professional Ethics and Legal Practices</td><td class="mark-grade">A</td><td><span class="mark-status">PASS</span></td></tr>
+                        <tr><td>Discrete Mathematics</td><td class="mark-grade">A</td><td><span class="mark-status">PASS</span></td></tr>
+                        <tr><td>Engineering Physics</td><td class="mark-grade" style="color:var(--accent-purple)">S</td><td><span class="mark-status" style="color:var(--accent-purple); background:rgba(168,85,247,0.1)">PASS</span></td></tr>
+                        <tr><td>Object Oriented Analysis and Design</td><td class="mark-grade">A</td><td><span class="mark-status">PASS</span></td></tr>
+                        <tr><td>Computer Networks</td><td class="mark-grade">A</td><td><span class="mark-status">PASS</span></td></tr>
+                        <tr><td>Biology and Environmental Science for Engineers</td><td class="mark-grade">A</td><td><span class="mark-status">PASS</span></td></tr>
+                        <tr><td>Aptitude and Competency Skills</td><td class="mark-grade">A</td><td><span class="mark-status">PASS</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
